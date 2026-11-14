@@ -1,0 +1,51 @@
+{
+  "name": "vibedecode",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run local",
+    "local": "npm run build:editor && node --import tsx scripts/local-report.mts",
+    "local:schema": "node --import tsx scripts/local-report.mts schema",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm test && npm run build",
+    "build:editor": "node scripts/build-editor.mjs",
+    "prebuild": "npm run build:editor"
+  },
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "*",
+    "@radix-ui/react-slot": "*",
+    "@radix-ui/react-tabs": "*",
+    "class-variance-authority": "*",
+    "clsx": "*",
+    "lucide-react": "*",
+    "monaco-editor": "0.57.0",
+    "next": "^16.0.10",
+    "quickjs-emscripten": "0.32.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "tailwind-merge": "*",
+    "typescript": "^5.9.3",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "*",
+    "@playwright/test": "*",
+    "@tailwindcss/postcss": "*",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "esbuild": "0.28.2",
+    "tailwindcss": "^4.0.0",
+    "tsx": "*",
+    "vitest": "*"
+  },
+  "overrides": {
+    "dompurify": "3.4.17"
+  }
+}

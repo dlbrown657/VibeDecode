@@ -1,0 +1,3 @@
+import Link from 'next/link';
+import { Code2 } from 'lucide-react';
+export default function NotFound() { return <main className="not-found-page" id="main-content"><Link className="pricing-brand" href="/demo"><Code2 aria-hidden="true" size={26} />VibeDecode.</Link><div className="not-found-code" aria-hidden="true">404</div><h1>This page is missing a connection.</h1><p>The address may have changed, or the page may no longer exist. Your workspace is a good place to start again.</p><Link className="button button-primary" href="/demo">Open the sample workspace</Link><Link href="mailto:vibedecode1@gmail.com">Report a broken link</Link></main>; }

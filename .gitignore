@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.npm-cache/
+.env*
+!.env.example
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+uploads/
+public/editor-assets/
+output/

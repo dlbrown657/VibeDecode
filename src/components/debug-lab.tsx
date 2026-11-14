@@ -1,0 +1,18 @@
+'use client';
+import { useState, useId } from 'react';
+import { Bug, Lightbulb, MapPin } from 'lucide-react';
+import type { DebugChallenge } from '@/lib/model';
+import { CodeWorkbench } from './code-workbench';
+import { Button } from './ui/button';
+import { SourceComparison } from './source-comparison';
+function DebugTask({ challenge, analysisId }: { challenge: DebugChallenge; analysisId: string }) {
+  const [location, setLocation] = useState(''), [hints, setHints] = useState(0);
+  const id = useId();
+  return <article className="card practice-detail"><div className="card-header"><div><span className={`badge difficulty-${challenge.difficulty.toLowerCase()}`}>{challenge.difficulty}</span><span className="pattern-label">{challenge.kind}</span><h3>{challenge.title}</h3></div><Bug size={22} /></div><p className="hypothetical-label">Training scenario · This introduces a hypothetical bug, not a confirmed defect in your project.</p><p>{challenge.scenario}</p><div className="bug-symptom"><strong>The reported symptom</strong><p>{challenge.symptom}</p></div><h4>Your mission</h4><p>{challenge.task}</p><label className="field" htmlFor={`${id}-location`}><span><MapPin size={15} />Where would you investigate first?</span><select id={`${id}-location`} value={location} onChange={event => setLocation(event.target.value)}><option value="">Choose a project file…</option>{challenge.candidates.map(path => <option key={path} value={path}>{path}</option>)}</select></label><p className="small-muted">Identify the responsible file, then edit the broken function below.</p><details className="debug-source-disclosure"><summary>See the project code that inspired this bug (may reveal where to look)</summary><SourceComparison context={challenge.sourceContext} practiceCode={challenge.solution} debug /></details><div className="debug-hints"><Button variant="ghost" size="sm" disabled={hints >= challenge.hints.length} onClick={() => setHints(hints + 1)}><Lightbulb size={15} />{hints ? 'Reveal another hint' : 'Get a hint'}</Button><ol aria-live="polite">{challenge.hints.slice(0, hints).map((hint, i) => <li key={i}>{hint}</li>)}</ol></div><CodeWorkbench analysisId={analysisId} exerciseId={challenge.id} kind="debug" starter={challenge.buggyCode} solution={challenge.solution} explanation={`${challenge.diagnosis} Source context: ${challenge.evidence.path}:${challenge.evidence.line}.`} alternatives={challenge.alternatives} runner={challenge.runner} location={location} /></article>;
+}
+export function DebugLab({ challenges, analysisId }: { challenges: DebugChallenge[]; analysisId: string }) {
+  const [selected, setSelected] = useState(challenges[0]?.id);
+  const challenge = challenges.find(item => item.id === selected) ?? challenges[0];
+  if (!challenge) return <div className="card processing"><Bug size={28} /><h3>Build a debugging lab for this project</h3><p>This analysis predates debugging challenges. Request a fresh analysis from Analysis history to generate project-specific scenarios.</p></div>;
+  return <div className="practice-layout"><nav className="exercise-nav" aria-label="Debugging scenarios">{challenges.map(item => <button key={item.id} className={`exercise-choice ${item.id === challenge.id ? 'active' : ''}`} aria-pressed={item.id === challenge.id} onClick={() => setSelected(item.id)}><Bug size={16} /><span><span className={`text-${item.difficulty.toLowerCase()}`}>{item.kind}</span><strong>{item.title}</strong><small>{item.difficulty}</small></span></button>)}<p className="practice-note">Trace a symptom, find the responsible file, and repair the behavior. Multiple correct implementations can pass.</p></nav><DebugTask key={challenge.id} challenge={challenge} analysisId={analysisId} /></div>;
+}
