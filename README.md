@@ -25,4 +25,17 @@ The assistant reads the code and creates the report. VibeDecode validates and di
 
 The development server listens on `127.0.0.1:3000`. Private reports live under the ignored `output/previews` folder. Personal previews are excluded from production routes and packaging. Bookmarks and learning progress stay in the browser. Runnable JavaScript and TypeScript practice answers are checked locally in an isolated QuickJS environment with execution and memory limits.
 
+## Compare local Git changes
+
+With Git installed, run one of these from the VibeDecode folder:
+
+```sh
+npm run compare -- "/path/to/project"
+npm run compare -- "/path/to/project" main HEAD
+```
+
+The first command captures staged and unstaged changes to tracked files against HEAD. The second compares two commits or refs. Open **Compare changes** in the app or visit [the comparison view](http://127.0.0.1:3000/compare). It shows the latest saved diff and a prompt for your coding assistant. Untracked files are listed by name. Binary contents and submodule changes are omitted.
+
+Each capture replaces the previous comparison in the ignored `output/previews` folder. Keep this file private because a diff can contain secrets. Review what you share with your coding assistant.
+
 Run `npm run check` to type-check, test, and build the project.

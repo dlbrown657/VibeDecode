@@ -15,7 +15,7 @@ export default async function LocalAnalysisPage() {
       <p>Ask your coding assistant to create a VibeDecode report using the Local AI instructions in the README.</p>
       <p>Save a valid report to <code>output/previews/local-report.json</code>, then refresh this page.</p>
       <a href="/demo">Explore the sample workspace</a>
+      <p><a href="/compare">Compare changes in a local Git repository</a></p>
     </main>
   );
 }
-

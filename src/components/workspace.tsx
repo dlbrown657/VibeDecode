@@ -92,6 +92,7 @@ export function Workspace({ preview, showLocalReport = false }: { preview?: Prev
           <div className="topbar-actions">
             <Button asChild size="sm" variant="secondary"><Link href="/demo">Sample</Link></Button>
             {showLocalReport && <Button asChild size="sm" variant="secondary"><Link href="/local">Local report</Link></Button>}
+            {showLocalReport && <Button asChild size="sm" variant="secondary"><Link href="/compare">Compare changes</Link></Button>}
           </div>
         </header>
         <main id="main-content" tabIndex={-1} className="main-content">
