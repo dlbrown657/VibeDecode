@@ -12,7 +12,7 @@ export default async function LocalAnalysisPage() {
   return (
     <main className="legal-page">
       <h1>Open a local analysis</h1>
-      <p>Ask your coding assistant to create a VibeDecode report using the Local AI instructions in the README.</p>
+      <p>Run <code>npm run local:schema</code> in a second terminal in the VibeDecode folder. Then give your coding assistant the report prompt from the README.</p>
       <p>Save a valid report to <code>output/previews/local-report.json</code>, then refresh this page.</p>
       <a href="/demo">Explore the sample workspace</a>
       <p><a href="/compare">Compare changes in a local Git repository</a></p>

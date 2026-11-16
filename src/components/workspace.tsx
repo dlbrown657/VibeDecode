@@ -73,7 +73,7 @@ export function Workspace({ preview, showLocalReport = false }: { preview?: Prev
       <a href="#main-content" className="skip-link">Skip to content</a>
       {menuOpen && <button className="sidebar-scrim" aria-label="Close navigation" onClick={() => setMenuOpen(false)} />}
       <aside className={`sidebar ${menuOpen ? 'is-open' : ''}`} id="workspace-navigation" aria-label="Workspace navigation">
-        <Link className="brand" href="/demo"><span className="brand-mark"><Code2 size={22} /></span>VibeDecode<span className="brand-period">.</span></Link>
+        <Link className="brand" href="/"><span className="brand-mark"><Code2 size={22} /></span>VibeDecode<span className="brand-period">.</span></Link>
         <button className="sidebar-search" onClick={() => setSearchOpen(true)}><Search size={16} />Search analysis</button>
         <nav className="main-nav" aria-label="Workspace">
           <button className={savedOpen ? '' : 'active'} onClick={() => showTab('overview')}><LayoutDashboard size={18} />Overview</button>

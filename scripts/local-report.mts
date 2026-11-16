@@ -1,11 +1,11 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { z } from 'zod';
-import { localReportSchema } from '../src/lib/local-report';
+import { localReportGenerationSchema } from '../src/lib/local-report';
 
 if (process.argv[2] === 'schema') {
   await mkdir('output/previews', { recursive: true });
-  await writeFile('output/previews/report-schema.json', JSON.stringify(z.toJSONSchema(localReportSchema, { io: 'input' }), null, 2));
+  await writeFile('output/previews/report-schema.json', JSON.stringify(z.toJSONSchema(localReportGenerationSchema, { io: 'input' }), null, 2));
   console.log('Schema written to output/previews/report-schema.json');
 } else {
   const child = spawn(process.execPath, ['node_modules/next/dist/bin/next', 'dev', '--hostname', '127.0.0.1'], {

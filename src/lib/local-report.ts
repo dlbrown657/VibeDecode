@@ -21,3 +21,15 @@ export const localReportSchema = z.object({
   })).max(2000),
   analysis: analysisSchema,
 });
+
+// Require the new counts when requesting a report. Existing saved reports still load.
+export const localReportGenerationSchema = localReportSchema.extend({
+  analysis: analysisSchema.extend({
+    exercises: analysisSchema.shape.exercises.min(10).max(15).describe(
+      'Write distinct LeetCode-style exercises. Vary the core pattern, inputs, and task. Tie each to a real source reference and prioritize the language used by that code.',
+    ),
+    resumeBullets: analysisSchema.shape.resumeBullets.unwrap().min(5).describe(
+      'Write at least five distinct resume bullets supported by actual source. Do not invent metrics, impact, or features.',
+    ),
+  }),
+});

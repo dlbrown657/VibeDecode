@@ -1,2 +1,6 @@
 import { redirect } from 'next/navigation';
-export default function Home() { redirect('/demo'); }
+import { localReportsEnabled } from '@/server/local-report';
+
+export default function Home() {
+  redirect(localReportsEnabled() ? '/local' : '/demo');
+}
