@@ -6,6 +6,35 @@ You vibe-coded an app, and it works. You鈥檙e proud of it. Then someone asks, 鈥
 
 When you鈥檙e ready to talk about the project, work through coding exercises and interview questions inspired by your own code. Use the resume bullet drafts to describe the work you actually did. The next time someone asks how your app works, you鈥檒l have a feature you can walk them through with confidence.
 
+## See VibeDecode in action
+
+These screenshots use Signalboard, the sample project included with VibeDecode.
+
+**Project overview** 路 See what the app does, which languages it uses, and how its main workflow fits together.
+
+![Signalboard overview showing its workflow and language breakdown](docs/screenshots/overview.png)
+
+<details>
+<summary>Feature explorer, coding practice, interview prep, and resume bullets</summary>
+
+**Feature explorer** 路 Pick a feature and follow its steps back to the source code.
+
+![Feature explorer tracing activity feed search to the source](docs/screenshots/feature-explorer.png)
+
+**Coding practice** 路 Work through an exercise inspired by a pattern in your project.
+
+![Coding challenge with topic filters and a source reference](docs/screenshots/practice.png)
+
+**Interview prep** 路 Switch between everyday explanations and software engineering answers.
+
+![Interview questions with Explain simply and Software engineer controls](docs/screenshots/interview-prep.png)
+
+**Resume bullets** 路 Edit and copy drafts linked to the code that supports them.
+
+![Editable resume bullet drafts for the sample project](docs/screenshots/resume-bullets.png)
+
+</details>
+
 ## Start VibeDecode
 
 1. Install **Node.js 22.14 or newer**.
