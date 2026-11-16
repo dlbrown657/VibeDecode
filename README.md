@@ -1,6 +1,10 @@
 # VibeDecode
 
-VibeDecode helps you understand a codebase and practice explaining it. Explore a sample project or open a report made by your own AI coding assistant.
+You vibe-coded an app, and it works. You’re proud of it. Then someone asks, “How did you build it?” You remember what you asked the AI for, but you’re staring at a folder full of files and wondering where to start.
+
+**VibeDecode helps you understand the app you built well enough to explain it in your own words.** Ask your coding assistant to review your project, then open its report in VibeDecode. Start with a feature you recognize, see how it fits into the app, and follow the explanation back to the code. That gives you a starting point when you want to change something or figure out why it broke.
+
+When you’re ready to talk about the project, work through coding exercises and interview questions inspired by your own code. Use the resume bullet drafts to describe the work you actually did. The next time someone asks how your app works, you’ll have a feature you can walk them through with confidence.
 
 ## Start VibeDecode
 
