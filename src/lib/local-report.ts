@@ -25,6 +25,14 @@ export const localReportSchema = z.object({
 // Require the new counts when requesting a report. Existing saved reports still load.
 export const localReportGenerationSchema = localReportSchema.extend({
   analysis: analysisSchema.extend({
+    interviews: analysisSchema.shape.interviews.element.required({
+      simpleQuestion: true, engineeringQuestion: true, beginnerAnswer: true, staffAnswer: true,
+    }).extend({
+      simpleQuestion: z.string().min(1).describe('Ask the question in plain language using a feature the reader recognizes.'),
+      engineeringQuestion: z.string().min(1).describe('Ask about the same feature in software engineering interview language. Use different wording and name the relevant design decision or technical constraint.'),
+      beginnerAnswer: z.string().min(1).describe('Explain what happens with a concrete example and define unfamiliar terms.'),
+      staffAnswer: z.string().min(1).describe('Give a distinct interview-ready answer grounded in the implementation, including a trade-off or how to verify it.'),
+    }).array(),
     exercises: analysisSchema.shape.exercises.min(10).max(15).describe(
       'Write distinct LeetCode-style exercises. Vary the core pattern, inputs, and task. Tie each to a real source reference and prioritize the language used by that code.',
     ),

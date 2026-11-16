@@ -42,6 +42,11 @@ used there. For small projects, label exercises that extend a real pattern as
 practice variations. Keep resume bullets factual and avoid invented numbers,
 features, or outcomes.
 
+For every interview question, write two versions about the same feature.
+Use everyday words and a concrete example for the simple question and answer.
+For the software engineering version, ask about an implementation decision,
+then explain how the code works, its trade-offs, and how you would verify it.
+
 Follow the format in:
 VIBEDECODE_FOLDER/output/previews/report-schema.json
 

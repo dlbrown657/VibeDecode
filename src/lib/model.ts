@@ -52,6 +52,7 @@ export const recallSelectionSchema = z.object({
 });
 export const recallExerciseSchema = recallSelectionSchema.extend({ language: z.string(), code: z.string() });
 export const interviewSchema = z.object({ ...provenance, question: z.string(), category: z.enum(['System design', 'Technical', 'Behavioral']),
+  simpleQuestion: z.string().min(1).optional(), engineeringQuestion: z.string().min(1).optional(),
   answer: z.string(), beginnerAnswer: z.string().optional(), staffAnswer: z.string().optional(), tradeoff: z.string(), star: z.object({ situation: z.string(), task: z.string(), action: z.string(), result: z.string() }), evidence });
 export const resumeBulletSchema = z.object({
   id: z.string(), category: z.enum(['Architecture', 'Frontend', 'Backend', 'Database', 'Testing', 'Performance', 'Security']),
